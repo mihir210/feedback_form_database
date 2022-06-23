@@ -1,14 +1,14 @@
 <?php
 
-// $servername = "sql5.freesqldatabase.com";
-// $username = "sql5501283";
-// $password = "gxLDpreGF1";
-// $dbname = "sql5501283";
+ $servername = "sql5.freesqldatabase.com";
+ $username = "sql5501283";
+ $password = "gxLDpreGF1";
+ $dbname = "sql5501283";
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "feedback";
+//$servername = "localhost";
+//$username = "root";
+//$password = "";
+//$dbname = "feedback";
 
 
 // $servername = "sql107.epizy.com";
