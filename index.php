@@ -1,0 +1,327 @@
+<?php
+include("connection.php");
+error_reporting(0);
+?>
+
+    <!DOCTYPE html>
+
+
+    <html lang="en">
+
+    <head>
+
+        <title>Feedback</title>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+        <!--Stylesheet-->
+        <style media="screen">
+            *,
+            *:before,
+            *:after {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                background-color: #000000;
+                min-block-size: 4ch;
+            }
+            
+            .background {
+                width: 430px;
+                height: 520px;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+                top: 50%;
+            }
+            
+            .background .shape {
+                height: 200px;
+                width: 200px;
+                position: absolute;
+                border-radius: 50%;
+            }
+            
+            .shape:first-child {
+                background: linear-gradient(#24269b, #0f19cc);
+                left: -150px;
+                top: -250px;
+            }
+            
+            .shape:last-child {
+                background: linear-gradient(to right, #ff512f, #e98c0a);
+                right: -110px;
+                bottom: -150px;
+            }
+            
+            .mainform {
+                height: auto;
+                width: auto;
+                background-color: rgba(255, 255, 255, 0.062);
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
+                border-radius: 20px;
+                backdrop-filter: blur(50px);
+                border: 2px solid rgba(255, 255, 255, 0);
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+                padding: 50px 35px;
+            }
+            
+            .mainform * {
+                font-family: "Poppins", sans-serif;
+                color: #ffffff;
+                letter-spacing: 1px;
+                outline: none;
+                border: none;
+            }
+            
+            .mainform h3 {
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 42px;
+                text-align: center;
+            }
+            
+            .mainform h4 {
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 42px;
+                text-align: center;
+            }
+            
+            label {
+                display: block;
+                margin-top: 30px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            
+            input {
+                display: block;
+                height: 50px;
+                width: 100%;
+                background-color: rgba(235, 232, 232, 0.096);
+                border-radius: 3px;
+                padding: 0 10px;
+                margin-top: 8px;
+                font-size: 14px;
+                font-weight: 300;
+            }
+            
+            textarea {
+                display: block;
+                height: 50px;
+                width: 100%;
+                background-color: rgba(235, 232, 232, 0.096);
+                border-radius: 3px;
+                padding: 0 10px;
+                margin-top: 8px;
+                font-size: 14px;
+                font-weight: 300;
+            }
+            
+             ::placeholder {
+                color: #f3f3f371;
+            }
+            
+            .button {
+                margin-top: 50px;
+                width: 100%;
+                background-color: #8a8a8a62;
+                color: #ffffff;
+                padding: 15px 0;
+                font-size: 18px;
+                font-weight: 600;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.5s;
+                cursor: pointer;
+            }
+            
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+            
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+            
+            .button:hover span {
+                padding-right: 25px;
+            }
+            
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+            
+            .social {
+                margin-top: 30px;
+                display: flex;
+            }
+            
+            .social div {
+                background: red;
+                width: 150px;
+                border-radius: 4px;
+                padding: 5px 10px 10px 5px;
+                background-color: rgba(255, 255, 255, 0.27);
+                color: #eaf0fb;
+                text-align: center;
+            }
+            
+            .social div:hover {
+                background-color: rgba(97, 71, 71, 0.47);
+            }
+            
+            .social .fb {
+                margin-left: 25px;
+            }
+            
+            .social i {
+                margin-right: 4px;
+            }
+            
+            .mainform select {
+                text-align: left;
+                display: block;
+                margin-top: 30px;
+                font-size: 20px;
+                font-weight: 500;
+                align-self: center;
+                background-color: rgba(51, 50, 50, 0.801);
+                border-radius: 3px;
+                padding: 0 100px;
+                margin-top: 9px;
+                margin-left: 80px;
+            }
+
+            @media (max-width: 470px)
+            {
+                .mainform{
+                    width: 88%;
+                }
+            }
+        </style>
+
+        <!-- <script type="text/javascript"> var infolinks_pid = 3359994; var infolinks_wsid = 0; </script>
+    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script> -->
+
+    </head>
+
+    <body>
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <form class = "mainform">
+            <h3>Feedback</h3>
+
+            <label for="email">Email</label>
+            <input type="email" placeholder="abc@gmail.com" id="email" name="email">
+
+            <label for="name">Name</label>
+            <input type="text" placeholder="Name" id="name" name="name">
+
+            <label for="department">Department</label>
+            <select name="department" id="department" placeholder="department">
+            <h4>
+                <option value="none" id="department" ,>SELECT BRANCH</option>
+                <option value="IT" id="department">IT</option>
+                <option value="CE" id="department">CE</option>
+                <option value="EC" id="department">EC</option>
+                <option value="CH" id="department">CH</option>
+                <option value="CIVIL" id="department">CIVIL</option>
+                <option value="MH" id="department">MH</option>
+                <option value="IC" id="department">IC</option>
+
+            </h4>
+        </select>
+
+            <label for="rollno">DDU ID</label>
+            <input type="text" name="roll_no" id="roll_no" placeholder="21ITUOS000">
+            <label for="feedback_text">Feedback</label>
+            <!--<input type="text" value="" id="feedback_text" , width="50%", name="feedback_text">-->
+            <textarea name="feedback_text" id="feedback_text" cols="30" rows="10" , placeholder="Give your Feedback"></textarea>
+
+            <!-- <span><input type="submit" name="submit" , class="button" , id="submit">Submit</span> -->
+            <button name="submit" , class="button" , id="submit"><span>Submit</span></button>
+            <!--<label for="submit">Submit</label>
+        <input type="submit" value="Login" name="submit" id="submit">-->
+        </form>
+
+
+        <!-- <script>
+        
+
+
+    
+
+
+            var email = $("email").val();
+            if (email == '') {
+                swal({
+                    title: "Enter The Email",
+                    icon: "warning",
+                })
+            } else {
+                
+            }
+    </script> -->
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    </body>
+
+    </html>
+    <?php
+                    $email = $_GET['email'];
+                        $name = $_GET['name'];
+                        $department = $_GET['department'];
+                        $roll_no = $_GET['roll_no'];
+                            $feedback_text = $_GET['feedback_text'];
+
+                            if ($email != "") {
+                                    $query = "INSERT INTO form (email,name,department,roll_no,feedback_text)VALUES('$email', '$name', '$department', '$roll_no', '$feedback_text')";
+                                $data =mysqli_query($conn, $query);
+                                if ($data) {
+                                        echo "<script>
+                                        alert('thanks for feedback');
+                                        </script>";
+
+                                        
+                                        
+                                }
+                                
+                                else {
+                                    echo "faild";
+                                }
+                                echo "<script>
+                                window.location.assign('index.php')</script>";
+                            }
+                            else {
+                                echo "<script>
+                                swal({
+                                    title: 'Enter The Email',
+                                    icon: warning',
+                                })
+                                </script>";
+                            }
+                            
+                ?>
